@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tio Lee - Meu Site Elegante</title>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+        header {
+            position: relative;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            font-family: 'Permanent Marker', cursive;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(255, 111, 97, 0.8), rgba(255, 204, 0, 0.8)); /* Gradiente com transparência */
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSH8K3BS_Kypgbp1mPAaoB1QrOeoiZqt5adng&usqp=CAU');
+            background-size: cover;
+            background-position: center;
+            filter: blur(2px); /* Efeito de desfoque */
+            z-index: -1;
+        }
+        header h1 {
+            font-size: 64px;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        header p {
+            font-size: 24px;
+            margin: 10px 0 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .audio-player {
+            margin-top: 20px;
+        }
+        .audio-player button {
+            background-color: #572cf0; /* Azul ciano */
+            color: #fff7f7;
+            border: none;
+            padding: 14px 20px;
+            font-size: 16px;
+            border-radius: 9px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .audio-player button:hover {
+            background-color: #00BFFF; /* Azul ciano mais claro no hover */
+        }
+        nav {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        nav a {
+            color: #fff;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #ffcc00;
+        }
+        .content {
+            padding: 60px 20px;
+            padding-bottom: 100px; /* Espaço extra para o rodapé fixo */
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .content h2 {
+            font-size: 36px;
+            color: #ffcc00;
+            margin-bottom: 30px;
+            font-family: 'Permanent Marker', cursive;
+        }
+        .content p {
+            font-size: 18px;
+            color: #e0e0e0;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        .content h3 {
+            font-size: 28px;
+            color: #ffcc00;
+            margin-bottom: 20px;
+            font-family: 'Permanent Marker', cursive;
+        }
+        .btn {
+            display: inline-block;
+            margin: 10px;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .btn-primary {
+            background-color: #ff6f61;
+            color: #fff;
+        }
+        .btn-primary:hover {
+            background-color: #ff4a3d;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .btn-secondary {
+            background-color: #0077cc;
+            color: #fff;
+        }
+        .btn-secondary:hover {
+            background-color: #005fa3;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .btn-success {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+        .btn-success:hover {
+            background-color: #45a049;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .btn-telegram {
+            background-color: #0088cc;
+            color: #fff;
+        }
+        .btn-telegram:hover {
+            background-color: #006699;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+        a {
+            color: #ffcc00;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        /* Responsividade */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 48px;
+            }
+            header p {
+                font-size: 20px;
+            }
+            nav a {
+                font-size: 16px;
+                margin: 0 10px;
+            }
+            .content h2 {
+                font-size: 28px;
+            }
+            .content p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Áudio de fundo (Moshimo - Naruto Shippuden) -->
+    <audio id="background-music" loop>
+        <source src="https://dnma3z6c8ojev.cloudfront.net/songs/mp3_files/22484010/original/NS-Opening12-Moshimo_by_Daisuke.mp3?e8817609673e6ceae29a01abbac7efb28e70b7d7d78f515d271738941b1f3bfaab47c326c1452365d9d1ffadb910d9b626674061d035d863833bacf70b6a9ee76b56bc23fd7b5587ec72fe71d041925098879881a1f5880af3f060fdb6d9fcddf18d129003f849f316e94caae7196a6f008fbc51499c" type="audio/mpeg">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+
+    <header>
+        <h1>Tio Lee</h1>
+        <p>Bem-vindo ao site do Tio Lee!</p>
+        <!-- Botão para tocar música -->
+        <div class="audio-player">
+            <button onclick="playMusic()">Musiquinha  ｡◕ ‿ ◕｡</button>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#home"><i class="fas fa-home"></i> Home</a>
+        <a href="#sobre"><i class="fas fa-user"></i> Sobre</a>
+        <a href="#servicos"><i class="fas fa-cogs"></i> Serviços</a>
+        <a href="#contato"><i class="fas fa-envelope"></i> Contato</a>
+    </nav>
+
+    <div class="content">
+        <!-- Seção Home -->
+        <section id="home">
+            <h2>Bem-vindo</h2>
+            <p>"Olá, grande amigo e inscrito do canal Tiolee! Crie este site para ajudar e facilitar algumas coisas. Sinta-se à vontade para baixar o que precisar ヾ(＠＾▽＾＠)ﾉ."</p>
+            <a href="https://www.youtube.com/channel/UCEZFHrdXXJBnH1U4J5BQGnw?sub_confirmation=1" target="_blank" class="btn btn-primary">Inscreva-se</a>
+        </section>
+
+        <!-- Seção Sobre -->
+        <section id="sobre">
+            <h2>Sobre</h2>
+            <p>"O que ainda não é inscrito não acredito, pare de ser vacilão e se inscreva aí. É só clicar nesse botão aí em cima (°ロ°)☝."</p>
+        </section>
+
+        <!-- Seção Serviços -->
+        <section id="servicos">
+            <h3>Aqui abaixo você irá encontrar alguns links</h3>
+            
+            <a href="https://anotepad.com/notes/wy55hp5p" target="_blank" class="btn btn-secondary">God of War 3</a>
+            <a href="https://youtu.be/emJ8FNSeudE?si=zdtuJuddjFG0ZlpK" target="_blank" class="btn btn-success">Melhor Config GOW 3</a>
+        </section>
+
+        <!-- Seção Contato -->
+        <section id="contato">
+            <h2>Contato</h2>
+            <p>Entre em contato com o Tio Lee através do Telegram:</p>
+            <a href="https://t.me/Leezin007" target="_blank" class="btn btn-telegram"><i class="fab fa-telegram"></i> Telegram</a>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Tio Lee. Todos os direitos reservados.</p>
+        <p>
+            <a href="https://www.youtube.com/channel/UCEZFHrdXXJBnH1U4J5BQGnw" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61564954118582" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/tioleearts?igsh=YzljYTk1ODg3Zg==" target="_blank"><i class="fab fa-instagram"></i></a>
+        </p>
+    </footer>
+
+    <script>
+        // Função para tocar a música
+        function playMusic() {
+            const audio = document.getElementById('background-music');
+            audio.play();
+            document.querySelector('.audio-player button').style.display = 'none'; // Oculta o botão após iniciar
+        }
+    </script>
+
+</body>
+</html>
