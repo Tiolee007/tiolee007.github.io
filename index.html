@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bem-vindo ao site do Tio Lee! Aqui você encontra dicas, serviços e muito mais.">
+    <meta name="keywords" content="Tio Lee, God of War 3, Configurações, Telegram, YouTube">
+    <meta name="author" content="Tio Lee">
     <title>Tio Lee - Meu Site Elegante</title>
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -13,6 +16,7 @@
             padding: 0;
             background-color: #1a1a1a;
             color: #e0e0e0;
+            scroll-behavior: smooth;
         }
         header {
             position: relative;
@@ -21,7 +25,7 @@
             text-align: center;
             font-family: 'Permanent Marker', cursive;
             overflow: hidden;
-            background: linear-gradient(135deg, rgba(255, 111, 97, 0.8), rgba(255, 204, 0, 0.8)); /* Gradiente com transparência */
+            background: linear-gradient(135deg, rgba(255, 111, 97, 0.8), rgba(255, 204, 0, 0.8));
         }
         header::before {
             content: '';
@@ -33,7 +37,7 @@
             background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSH8K3BS_Kypgbp1mPAaoB1QrOeoiZqt5adng&usqp=CAU');
             background-size: cover;
             background-position: center;
-            filter: blur(2px); /* Efeito de desfoque */
+            filter: blur(8px);
             z-index: -1;
         }
         header h1 {
@@ -48,19 +52,73 @@
         }
         .audio-player {
             margin-top: 20px;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 15px;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
         .audio-player button {
-            background-color: #572cf0; /* Azul ciano */
-            color: #fff7f7;
+            background-color: #00CED1;
+            color: #fff;
             border: none;
-            padding: 14px 20px;
+            padding: 10px 20px;
             font-size: 16px;
-            border-radius: 9px;
+            border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
         .audio-player button:hover {
-            background-color: #00BFFF; /* Azul ciano mais claro no hover */
+            background-color: #00BFFF;
+            transform: translateY(-2px);
+        }
+        .audio-player button i {
+            font-size: 18px;
+        }
+        .audio-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .volume-label {
+            color: #fff;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+        }
+        input[type="range"] {
+            width: 100px;
+            cursor: pointer;
+            background-color: #00CED1;
+            border-radius: 5px;
+            height: 5px;
+            outline: none;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        input[type="range"]:hover {
+            opacity: 1;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            background-color: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        input[type="range"]::-moz-range-thumb {
+            width: 15px;
+            height: 15px;
+            background-color: #fff;
+            border-radius: 50%;
+            cursor: pointer;
         }
         nav {
             background-color: rgba(0, 0, 0, 0.8);
@@ -81,7 +139,7 @@
         }
         .content {
             padding: 60px 20px;
-            padding-bottom: 100px; /* Espaço extra para o rodapé fixo */
+            padding-bottom: 100px;
             text-align: center;
             max-width: 800px;
             margin: 0 auto;
@@ -150,6 +208,15 @@
             transform: translateY(-3px);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
+        .btn-patinho {
+            background-color: #ffcc00;
+            color: #1a1a1a;
+        }
+        .btn-patinho:hover {
+            background-color: #e6b800;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
         footer {
             background-color: #333;
             color: #fff;
@@ -172,7 +239,21 @@
         a:hover {
             text-decoration: underline;
         }
-        /* Responsividade */
+        .back-to-top {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background-color: #ff6f61;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 50%;
+            text-decoration: none;
+            display: none;
+            transition: background-color 0.3s ease;
+        }
+        .back-to-top:hover {
+            background-color: #ff4a3d;
+        }
         @media (max-width: 768px) {
             header h1 {
                 font-size: 48px;
@@ -195,18 +276,34 @@
 </head>
 <body>
 
-    <!-- Áudio de fundo (Moshimo - Naruto Shippuden) -->
     <audio id="background-music" loop>
+        <source src="https://ia600905.us.archive.org/3/items/jjbamusic/Great%20Days.mp3" type="audio/mpeg">
         <source src="https://dnma3z6c8ojev.cloudfront.net/songs/mp3_files/22484010/original/NS-Opening12-Moshimo_by_Daisuke.mp3?e8817609673e6ceae29a01abbac7efb28e70b7d7d78f515d271738941b1f3bfaab47c326c1452365d9d1ffadb910d9b626674061d035d863833bacf70b6a9ee76b56bc23fd7b5587ec72fe71d041925098879881a1f5880af3f060fdb6d9fcddf18d129003f849f316e94caae7196a6f008fbc51499c" type="audio/mpeg">
+        <source src="https://ia800905.us.archive.org/3/items/jjbamusic/Awaken.mp3" type="audio/mpeg">
+        <source src="https://ia800905.us.archive.org/3/items/jjbamusic/Fighting%20Gold.mp3" type="audio/mpeg">
+        <source src="https://ia600905.us.archive.org/3/items/jjbamusic/Uragirimono%20no%20%20Requiem.mp3" type="audio/mpeg">
         Seu navegador não suporta o elemento de áudio.
     </audio>
 
     <header>
         <h1>Tio Lee</h1>
         <p>Bem-vindo ao site do Tio Lee!</p>
-        <!-- Botão para tocar música -->
         <div class="audio-player">
-            <button onclick="playMusic()">Musiquinha  ｡◕ ‿ ◕｡</button>
+            <button id="play-button" onclick="playMusic()" aria-label="Reproduzir música">
+                <i class="fas fa-music"></i> Musiquinha ｡◕ ‿ ◕｡
+            </button>
+            <button id="pause-button" onclick="pauseMusic()" aria-label="Pausar música" style="display: none;">
+                <i class="fas fa-pause"></i> Pausar
+            </button>
+            <div class="audio-controls">
+                <button id="next-button" onclick="nextMusic()" aria-label="Próxima música">
+                    <i class="fas fa-forward"></i> Próxima
+                </button>
+                <label for="volume" class="volume-label">
+                    <i class="fas fa-volume-up"></i>
+                </label>
+                <input type="range" id="volume" min="0" max="1" step="0.1" value="1" oninput="setVolume(this.value)">
+            </div>
         </div>
     </header>
 
@@ -218,28 +315,25 @@
     </nav>
 
     <div class="content">
-        <!-- Seção Home -->
         <section id="home">
             <h2>Bem-vindo</h2>
             <p>"Olá, grande amigo e inscrito do canal Tiolee! Crie este site para ajudar e facilitar algumas coisas. Sinta-se à vontade para baixar o que precisar ヾ(＠＾▽＾＠)ﾉ."</p>
             <a href="https://www.youtube.com/channel/UCEZFHrdXXJBnH1U4J5BQGnw?sub_confirmation=1" target="_blank" class="btn btn-primary">Inscreva-se</a>
         </section>
 
-        <!-- Seção Sobre -->
         <section id="sobre">
             <h2>Sobre</h2>
-            <p>"O que ainda não é inscrito não acredito, pare de ser vacilão e se inscreva aí. É só clicar nesse botão aí em cima (°ロ°)☝."</p>
+            <p>"O que ainda não é inscrito, pare de ser vacilão e se inscreva aí. É só clicar nesse botão aí em cima (°ロ°)☝."</p>
         </section>
 
-        <!-- Seção Serviços -->
         <section id="servicos">
             <h3>Aqui abaixo você irá encontrar alguns links</h3>
-            
+            <p>Descrição dos serviços oferecidos pelo Tio Lee.</p>
             <a href="https://anotepad.com/notes/wy55hp5p" target="_blank" class="btn btn-secondary">God of War 3</a>
             <a href="https://youtu.be/emJ8FNSeudE?si=zdtuJuddjFG0ZlpK" target="_blank" class="btn btn-success">Melhor Config GOW 3</a>
+            <a href="https://drive.usercontent.google.com/download?id=12WoNwrBfrwljUUHZoNC5CvAFvPqeODmH&export=download&authuser=0&confirm=t&uuid=d5b8df50-bca6-46d2-9a84-a654d79b074c&at=AIrpjvN2_1QheMjOHY1L4HNvf3zm%3A1737235224322" target="_blank" class="btn btn-patinho">Patinho 3.2</a>
         </section>
 
-        <!-- Seção Contato -->
         <section id="contato">
             <h2>Contato</h2>
             <p>Entre em contato com o Tio Lee através do Telegram:</p>
@@ -256,14 +350,44 @@
         </p>
     </footer>
 
-    <script>
-        // Função para tocar a música
-        function playMusic() {
-            const audio = document.getElementById('background-music');
-            audio.play();
-            document.querySelector('.audio-player button').style.display = 'none'; // Oculta o botão após iniciar
-        }
-    </script>
+    <a href="#top" class="back-to-top" id="back-to-top"><i class="fas fa-arrow-up"></i></a>
 
+    <script>
+        const audio = document.getElementById('background-music');
+        const sources = audio.getElementsByTagName('source');
+        let currentTrack = 0;
+
+        function playMusic() {
+            audio.play();
+            document.getElementById('play-button').style.display = 'none';
+            document.getElementById('pause-button').style.display = 'inline-block';
+        }
+
+        function pauseMusic() {
+            audio.pause();
+            document.getElementById('play-button').style.display = 'inline-block';
+            document.getElementById('pause-button').style.display = 'none';
+        }
+
+        function setVolume(volume) {
+            audio.volume = volume;
+        }
+
+        function nextMusic() {
+            currentTrack = (currentTrack + 1) % sources.length;
+            audio.src = sources[currentTrack].src;
+            audio.play();
+            document.getElementById('play-button').style.display = 'none';
+            document.getElementById('pause-button').style.display = 'inline-block';
+        }
+
+        window.onscroll = function() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById('back-to-top').style.display = 'block';
+            } else {
+                document.getElementById('back-to-top').style.display = 'none';
+            }
+        };
+    </script>
 </body>
 </html>
