@@ -333,4 +333,79 @@
         <a href="#contato"><i class="fas fa-envelope"></i> Contato</a>
     </nav>
 
-    <
+    <div class="content">
+        <section id="home">
+            <h2>Bem-vindo</h2>
+            <p>"Olá, grande amigo e inscrito do canal Tiolee! Crie este site para ajudar e facilitar algumas coisas. Sinta-se à vontade para baixar o que precisar ヾ(＠＾▽＾＠)ﾉ."</p>
+            <a href="https://www.youtube.com/channel/UCEZFHrdXXJBnH1U4J5BQGnw?sub_confirmation=1" target="_blank" class="btn btn-primary">Inscreva-se</a>
+        </section>
+
+        <section id="sobre">
+            <h2>Sobre</h2>
+            <p>"O que ainda não é inscrito, pare de ser vacilão e se inscreva aí. É só clicar nesse botão aí em cima (°ロ°)☝."</p>
+        </section>
+
+        <section id="servicos">
+            <h3>Aqui abaixo você irá encontrar alguns links</h3>
+            <p>Descrição dos serviços oferecidos pelo Tio Lee.</p>
+            <a href="https://anotepad.com/notes/wy55hp5p" target="_blank" class="btn btn-secondary">God of War 3</a>
+            <a href="https://youtu.be/emJ8FNSeudE?si=zdtuJuddjFG0ZlpK" target="_blank" class="btn btn-success">Melhor Config GOW 3</a>
+            <a href="https://drive.usercontent.google.com/download?id=12WoNwrBfrwljUUHZoNC5CvAFvPqeODmH&export=download&authuser=0&confirm=t&uuid=d5b8df50-bca6-46d2-9a84-a654d79b074c&at=AIrpjvN2_1QheMjOHY1L4HNvf3zm%3A1737235224322" target="_blank" class="btn btn-patinho">Patinho 3.2</a>
+        </section>
+
+        <section id="contato">
+            <h2>Contato</h2>
+            <p>Entre em contato comigo através das minhas redes sociais ou por e-mail.</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Tio Lee. Todos os direitos reservados.</p>
+    </footer>
+
+    <a href="#top" class="back-to-top" id="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <script>
+        const audio = document.getElementById('background-music');
+        const sources = audio.getElementsByTagName('source');
+        let currentTrackIndex = 0;
+
+        function playMusic() {
+            audio.play();
+            document.getElementById('play-button').style.display = 'none';
+            document.getElementById('pause-button').style.display = 'inline-block';
+        }
+
+        function pauseMusic() {
+            audio.pause();
+            document.getElementById('play-button').style.display = 'inline-block';
+            document.getElementById('pause-button').style.display = 'none';
+        }
+
+        function nextMusic() {
+            currentTrackIndex = (currentTrackIndex + 1) % sources.length;
+            audio.src = sources[currentTrackIndex].src;
+            audio.play();
+        }
+
+        function previousMusic() {
+            currentTrackIndex = (currentTrackIndex - 1 + sources.length) % sources.length;
+            audio.src = sources[currentTrackIndex].src;
+            audio.play();
+        }
+
+        function setVolume(volume) {
+            audio.volume = volume;
+        }
+
+        // Botão "Voltar ao topo"
+        window.onscroll = function() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById('back-to-top').style.display = 'block';
+            } else {
+                document.getElementById('back-to-top').style.display = 'none';
+            }
+        };
+    </script>
+</body>
+</html>
