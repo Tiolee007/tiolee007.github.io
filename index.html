@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -51,7 +51,7 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
         .audio-player {
-            margin-top: 20px;
+            margin-top: 40px;
             background-color: rgba(0, 0, 0, 0.8);
             padding: 20px;
             border-radius: 15px;
@@ -169,6 +169,11 @@
             margin-bottom: 20px;
             font-family: 'Permanent Marker', cursive;
         }
+        .contact-message {
+            font-size: 16px;
+            margin-top: 20px;
+            color: #ffcc00;
+        }
         .btn {
             display: inline-block;
             margin: 10px;
@@ -238,6 +243,12 @@
             margin: 0;
             font-size: 14px;
         }
+        .social-menu {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
         a {
             color: #ffcc00;
             text-decoration: none;
@@ -248,7 +259,7 @@
         }
         .back-to-top {
             position: fixed;
-            bottom: 80px;
+            bottom: 80px; /* Ajustado para ficar mais alto */
             right: 20px;
             background-color: #ff6f61;
             color: #fff;
@@ -283,26 +294,17 @@
 </head>
 <body>
 
-    <audio id="background-music" loop>
-        <source src="https://ia600905.us.archive.org/3/items/jjbamusic/Great%20Days.mp3" type="audio/mpeg">
-        <source src="https://dnma3z6c8ojev.cloudfront.net/songs/mp3_files/22484010/original/NS-Opening12-Moshimo_by_Daisuke.mp3?e8817609673e6ceae29a01abbac7efb28e70b7d7d78f515d271738941b1f3bfaab47c326c1452365d9d1ffadb910d9b626674061d035d863833bacf70b6a9ee76b56bc23fd7b5587ec72fe71d041925098879881a1f5880af3f060fdb6d9fcddf18d129003f849f316e94caae7196a6f008fbc51499c" type="audio/mpeg">
-        <source src="https://ia800905.us.archive.org/3/items/jjbamusic/Awaken.mp3" type="audio/mpeg">
-        <source src="https://ia800905.us.archive.org/3/items/jjbamusic/Fighting%20Gold.mp3" type="audio/mpeg">
-        <source src="https://ia600905.us.archive.org/3/items/jjbamusic/Uragirimono%20no%20%20Requiem.mp3" type="audio/mpeg">
-        <source src="https://ia600108.us.archive.org/3/items/as-andorinhas-dj-zbl-eletrofunk-remix-mp-3-160-k/As%20Andorinhas%20-%20DJ%20ZBL%20%28Eletrofunk%20Remix%29%28MP3_160K%29.mp3?cnt=0" type="audio/mpeg">
-        <source src="https://ia801706.us.archive.org/18/items/digimon-02-opening-theme-song-japanese-mp-3-160-k/Digimon%2002%20Opening%20Theme%20Song%20%28Japanese%29%28MP3_160K%29.mp3?cnt=0" type="audio/mpeg">
-        <source src="https://ia600905.us.archive.org/3/items/jjbamusic/Bloody%20Stream.mp3" type="audio/mpeg">
-        <source src="https://ia600905.us.archive.org/3/items/jjbamusic/Crazy%20Noisy%20Bizarre%20Town.mp3" type="audio/mpeg">
-        <source src="https://ia800905.us.archive.org/3/items/jjbamusic/Freak%27n%20You.mp3" type="audio/mpeg">
-        <source src="https://ia600905.us.archive.org/3/items/jjbamusic/Sono%20Chi%20no%20Sadame.mp3" type="audio/mpeg">
-        <source src="https://ia800905.us.archive.org/3/items/jjbamusic/Stand%20Proud.mp3" type="audio/mpeg">
-        Seu navegador não suporta o elemento de áudio.
-    </audio>
-
     <header>
         <h1>Tio Lee</h1>
         <p>Bem-vindo ao site do Tio Lee!</p>
         <div class="audio-player">
+            <audio id="background-music" onended="nextMusic()">
+                <source src="https://ia600609.us.archive.org/23/items/jo-jo-s-bizarre-adventure-all-openings-without-sfx-part-1-6-mp-3-160-k/JoJo_s%20Bizarre%20Adventure%20All%20openings%20without%20SFX%20%28part%201-6%29%28MP3_160K%29.mp3?cnt=0" type="audio/mpeg">
+                <source src="https://ia800905.us.archive.org/3/items/jjbamusic/Freak%27n%20You.mp3" type="audio/mpeg">
+                <source src="https://ia600809.us.archive.org/19/items/all-openings-inazuma-eleven-go-chrono-stone-galaxy-ares-orion-mp-3-160-k/All%20Openings%20Inazuma%20Eleven%20%5BGO_Chrono%20Stone_Galaxy_Ares_Orion%5D%28MP3_160K%29.mp3?cnt=0" type="audio/mpeg">
+                <source src="https://ia800702.us.archive.org/20/items/gashbelldigimon/gashbelldigimon.mp3?cnt=0" type="audio/mpeg"> <!-- Nova música adicionada -->
+                Seu navegador não suporta o elemento de áudio.
+            </audio>
             <button id="play-button" onclick="playMusic()" aria-label="Reproduzir música">
                 <i class="fas fa-play"></i>
             </button>
@@ -347,7 +349,6 @@
 
         <section id="servicos">
             <h3>Aqui abaixo você irá encontrar alguns links</h3>
-            <p>Descrição dos serviços oferecidos pelo Tio Lee.</p>
             <a href="https://anotepad.com/notes/wy55hp5p" target="_blank" class="btn btn-secondary">God of War 3</a>
             <a href="https://youtu.be/emJ8FNSeudE?si=zdtuJuddjFG0ZlpK" target="_blank" class="btn btn-success">Melhor Config GOW 3</a>
             <a href="https://drive.usercontent.google.com/download?id=12WoNwrBfrwljUUHZoNC5CvAFvPqeODmH&export=download&authuser=0&confirm=t&uuid=d5b8df50-bca6-46d2-9a84-a654d79b074c&at=AIrpjvN2_1QheMjOHY1L4HNvf3zm%3A1737235224322" target="_blank" class="btn btn-patinho">Patinho 3.2</a>
@@ -355,12 +356,34 @@
 
         <section id="contato">
             <h2>Contato</h2>
-            <p>Entre em contato comigo através das minhas redes sociais ou por e-mail.</p>
+            <p class="contact-message">Se quiser conversar comigo sobre alguma coisa, clique nos botões abaixo. Estou à disposição. १✌˚◡˚✌५</p>
+            <div class="social-links">
+                <a href="https://t.me/tioleezin" target="_blank" class="btn btn-telegram">
+                    <i class="fab fa-telegram"></i> Telegram
+                </a>
+                <a href="https://www.tiktok.com/@tio.lee007?_t=ZM-8tpHh9cdeTO&_r=1" target="_blank" class="btn btn-patinho">
+                    <i class="fab fa-tiktok"></i> TikTok
+                </a>
+            </div>
         </section>
     </div>
 
     <footer>
         <p>&copy; 2023 Tio Lee. Todos os direitos reservados.</p>
+        <div class="social-menu">
+            <a href="https://t.me/tioleezin" target="_blank">
+                <i class="fab fa-telegram"></i>
+            </a>
+            <a href="https://www.tiktok.com/@tio.lee007?_t=ZM-8tpHh9cdeTO&_r=1" target="_blank">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61564954118582" target="_blank">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com/tioleearts?igsh=YzljYTk1ODg3Zg==" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
     </footer>
 
     <a href="#top" class="back-to-top" id="back-to-top"><i class="fas fa-arrow-up"></i></a>
@@ -405,6 +428,11 @@
             } else {
                 document.getElementById('back-to-top').style.display = 'none';
             }
+        };
+
+        document.getElementById('back-to-top').onclick = function() {
+            document.body.scrollTop = 0; // Para Safari
+            document.documentElement.scrollTop = 0; // Para Chrome, Firefox, IE e Opera
         };
     </script>
 </body>
