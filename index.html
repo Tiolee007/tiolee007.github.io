@@ -37,7 +37,7 @@
             background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSH8K3BS_Kypgbp1mPAaoB1QrOeoiZqt5adng&usqp=CAU');
             background-size: cover;
             background-position: center;
-            filter: blur(8px);
+            filter: blur(2px);
             z-index: -1;
         }
         header h1 {
@@ -52,19 +52,22 @@
         }
         .audio-player {
             margin-top: 20px;
-            background-color: rgba(0, 0, 0, 0.6);
-            padding: 15px;
-            border-radius: 10px;
-            display: inline-block;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
         .audio-player button {
             background-color: #00CED1;
             color: #fff;
             border: none;
-            padding: 10px 20px;
+            padding: 12px 24px;
             font-size: 16px;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.3s ease;
             display: inline-flex;
@@ -76,14 +79,18 @@
             transform: translateY(-2px);
         }
         .audio-player button i {
-            font-size: 18px;
+            font-size: 20px;
         }
         .audio-controls {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        .volume-controls {
+            display: flex;
             align-items: center;
             gap: 10px;
-            margin-top: 10px;
         }
         .volume-label {
             color: #fff;
@@ -282,6 +289,13 @@
         <source src="https://ia800905.us.archive.org/3/items/jjbamusic/Awaken.mp3" type="audio/mpeg">
         <source src="https://ia800905.us.archive.org/3/items/jjbamusic/Fighting%20Gold.mp3" type="audio/mpeg">
         <source src="https://ia600905.us.archive.org/3/items/jjbamusic/Uragirimono%20no%20%20Requiem.mp3" type="audio/mpeg">
+        <source src="https://ia600108.us.archive.org/3/items/as-andorinhas-dj-zbl-eletrofunk-remix-mp-3-160-k/As%20Andorinhas%20-%20DJ%20ZBL%20%28Eletrofunk%20Remix%29%28MP3_160K%29.mp3?cnt=0" type="audio/mpeg">
+        <source src="https://ia801706.us.archive.org/18/items/digimon-02-opening-theme-song-japanese-mp-3-160-k/Digimon%2002%20Opening%20Theme%20Song%20%28Japanese%29%28MP3_160K%29.mp3?cnt=0" type="audio/mpeg">
+        <source src="https://ia600905.us.archive.org/3/items/jjbamusic/Bloody%20Stream.mp3" type="audio/mpeg">
+        <source src="https://ia600905.us.archive.org/3/items/jjbamusic/Crazy%20Noisy%20Bizarre%20Town.mp3" type="audio/mpeg">
+        <source src="https://ia800905.us.archive.org/3/items/jjbamusic/Freak%27n%20You.mp3" type="audio/mpeg">
+        <source src="https://ia600905.us.archive.org/3/items/jjbamusic/Sono%20Chi%20no%20Sadame.mp3" type="audio/mpeg">
+        <source src="https://ia800905.us.archive.org/3/items/jjbamusic/Stand%20Proud.mp3" type="audio/mpeg">
         Seu navegador não suporta o elemento de áudio.
     </audio>
 
@@ -290,19 +304,24 @@
         <p>Bem-vindo ao site do Tio Lee!</p>
         <div class="audio-player">
             <button id="play-button" onclick="playMusic()" aria-label="Reproduzir música">
-                <i class="fas fa-music"></i> Musiquinha ｡◕ ‿ ◕｡
+                <i class="fas fa-play"></i>
             </button>
             <button id="pause-button" onclick="pauseMusic()" aria-label="Pausar música" style="display: none;">
-                <i class="fas fa-pause"></i> Pausar
+                <i class="fas fa-pause"></i>
             </button>
             <div class="audio-controls">
-                <button id="next-button" onclick="nextMusic()" aria-label="Próxima música">
-                    <i class="fas fa-forward"></i> Próxima
+                <button id="previous-button" onclick="previousMusic()" aria-label="Música anterior">
+                    <i class="fas fa-backward"></i>
                 </button>
-                <label for="volume" class="volume-label">
-                    <i class="fas fa-volume-up"></i>
-                </label>
-                <input type="range" id="volume" min="0" max="1" step="0.1" value="1" oninput="setVolume(this.value)">
+                <button id="next-button" onclick="nextMusic()" aria-label="Próxima música">
+                    <i class="fas fa-forward"></i>
+                </button>
+                <div class="volume-controls">
+                    <label for="volume" class="volume-label">
+                        <i class="fas fa-volume-up"></i>
+                    </label>
+                    <input type="range" id="volume" min="0" max="1" step="0.1" value="1" oninput="setVolume(this.value)">
+                </div>
             </div>
         </div>
     </header>
@@ -314,80 +333,4 @@
         <a href="#contato"><i class="fas fa-envelope"></i> Contato</a>
     </nav>
 
-    <div class="content">
-        <section id="home">
-            <h2>Bem-vindo</h2>
-            <p>"Olá, grande amigo e inscrito do canal Tiolee! Crie este site para ajudar e facilitar algumas coisas. Sinta-se à vontade para baixar o que precisar ヾ(＠＾▽＾＠)ﾉ."</p>
-            <a href="https://www.youtube.com/channel/UCEZFHrdXXJBnH1U4J5BQGnw?sub_confirmation=1" target="_blank" class="btn btn-primary">Inscreva-se</a>
-        </section>
-
-        <section id="sobre">
-            <h2>Sobre</h2>
-            <p>"O que ainda não é inscrito, pare de ser vacilão e se inscreva aí. É só clicar nesse botão aí em cima (°ロ°)☝."</p>
-        </section>
-
-        <section id="servicos">
-            <h3>Aqui abaixo você irá encontrar alguns links</h3>
-            <p>Descrição dos serviços oferecidos pelo Tio Lee.</p>
-            <a href="https://anotepad.com/notes/wy55hp5p" target="_blank" class="btn btn-secondary">God of War 3</a>
-            <a href="https://youtu.be/emJ8FNSeudE?si=zdtuJuddjFG0ZlpK" target="_blank" class="btn btn-success">Melhor Config GOW 3</a>
-            <a href="https://drive.usercontent.google.com/download?id=12WoNwrBfrwljUUHZoNC5CvAFvPqeODmH&export=download&authuser=0&confirm=t&uuid=d5b8df50-bca6-46d2-9a84-a654d79b074c&at=AIrpjvN2_1QheMjOHY1L4HNvf3zm%3A1737235224322" target="_blank" class="btn btn-patinho">Patinho 3.2</a>
-        </section>
-
-        <section id="contato">
-            <h2>Contato</h2>
-            <p>Entre em contato com o Tio Lee através do Telegram:</p>
-            <a href="https://t.me/Leezin007" target="_blank" class="btn btn-telegram"><i class="fab fa-telegram"></i> Telegram</a>
-        </section>
-    </div>
-
-    <footer>
-        <p>&copy; 2025 Tio Lee. Todos os direitos reservados.</p>
-        <p>
-            <a href="https://www.youtube.com/channel/UCEZFHrdXXJBnH1U4J5BQGnw" target="_blank"><i class="fab fa-youtube"></i></a>
-            <a href="https://www.facebook.com/profile.php?id=61564954118582" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.instagram.com/tioleearts?igsh=YzljYTk1ODg3Zg==" target="_blank"><i class="fab fa-instagram"></i></a>
-        </p>
-    </footer>
-
-    <a href="#top" class="back-to-top" id="back-to-top"><i class="fas fa-arrow-up"></i></a>
-
-    <script>
-        const audio = document.getElementById('background-music');
-        const sources = audio.getElementsByTagName('source');
-        let currentTrack = 0;
-
-        function playMusic() {
-            audio.play();
-            document.getElementById('play-button').style.display = 'none';
-            document.getElementById('pause-button').style.display = 'inline-block';
-        }
-
-        function pauseMusic() {
-            audio.pause();
-            document.getElementById('play-button').style.display = 'inline-block';
-            document.getElementById('pause-button').style.display = 'none';
-        }
-
-        function setVolume(volume) {
-            audio.volume = volume;
-        }
-
-        function nextMusic() {
-            currentTrack = (currentTrack + 1) % sources.length;
-            audio.src = sources[currentTrack].src;
-            audio.play();
-            document.getElementById('play-button').style.display = 'none';
-            document.getElementById('pause-button').style.display = 'inline-block';
-        }
-
-        window.onscroll = function() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                document.getElementById('back-to-top').style.display = 'block';
-            } else {
-                document.getElementById('back-to-top').style.display = 'none';
-            }
-        };
-    </script>
-</body>
-</html>
+    <
