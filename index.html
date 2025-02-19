@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -115,6 +115,31 @@
         }
         input[type="range"]:hover {
             opacity: 1;
+        }
+        .audio-progress {
+            width: 100%;
+            margin-top: 10px;
+            position: relative;
+        }
+        .audio-progress input[type="range"] {
+            width: 100%;
+            -webkit-appearance: none;
+            background: transparent;
+        }
+        .audio-progress input[type="range"]::-webkit-slider-runnable-track {
+            height: 5px;
+            background: #00CED1;
+            border-radius: 5px;
+        }
+        .audio-progress input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 15px;
+            height: 15px;
+            background: #fff;
+            border-radius: 50%;
+            margin-top: -5px;
+            cursor: pointer;
+            box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
         }
         nav {
             background-color: rgba(0, 0, 0, 0.8);
@@ -313,12 +338,13 @@
             <i class="fas fa-share-alt"></i>
         </button>
         <div class="audio-player">
-            <audio id="background-music" onended="nextMusic()">
+            <audio id="background-music" onended="nextMusic()" preload="auto">
+                <source src="https://encurtador.com.br/OamkM" type="audio/mpeg"> <!-- Nova música adicionada -->
                 <source src="https://ia600609.us.archive.org/23/items/jo-jo-s-bizarre-adventure-all-openings-without-sfx-part-1-6-mp-3-160-k/JoJo_s%20Bizarre%20Adventure%20All%20openings%20without%20SFX%20%28part%201-6%29%28MP3_160K%29.mp3?cnt=0" type="audio/mpeg">
-                <source src="https://ia600600.us.archive.org/11/items/edijojo/edijojo.m4a?cnt=0" type="audio/mp4"> <!-- Música atualizada -->
+                <source src="https://ia600600.us.archive.org/11/items/edijojo/edijojo.m4a?cnt=0" type="audio/mp4">
                 <source src="https://ia600809.us.archive.org/19/items/all-openings-inazuma-eleven-go-chrono-stone-galaxy-ares-orion-mp-3-160-k/All%20Openings%20Inazuma%20Eleven%20%5BGO_Chrono%20Stone_Galaxy_Ares_Orion%5D%28MP3_160K%29.mp3?cnt=0" type="audio/mpeg">
                 <source src="https://ia800702.us.archive.org/20/items/gashbelldigimon/gashbelldigimon.mp3?cnt=0" type="audio/mpeg">
-                <source src="https://ia801709.us.archive.org/24/items/all-naruto-shippuden-openings-m-4-a-128-k/All%20Naruto%20Shippuden%20Openings%28M4A_128K%29.m4a?cnt=0" type="audio/mp4"> <!-- Nova música adicionada -->
+                <source src="https://ia801709.us.archive.org/24/items/all-naruto-shippuden-openings-m-4-a-128-k/All%20Naruto%20Shippuden%20Openings%28M4A_128K%29.m4a?cnt=0" type="audio/mp4">
                 Seu navegador não suporta o elemento de áudio.
             </audio>
             <button id="play-button" onclick="playMusic()" aria-label="Reproduzir música">
@@ -341,6 +367,9 @@
                     <input type="range" id="volume" min="0" max="1" step="0.1" value="1" oninput="setVolume(this.value)">
                 </div>
             </div>
+            <div class="audio-progress">
+                <input type="range" id="progress" value="0" max="100">
+            </div>
         </div>
     </header>
 
@@ -362,7 +391,6 @@
             <h2>Sobre</h2>
             <p>"O que ainda não é inscrito, pare de ser vacilão e se inscreva aí. É só clicar nesse botão aí em cima (°ロ°)☝."</p>
         </section>
-
         <section id="servicos">
             <h3>Aqui abaixo você irá encontrar alguns links</h3>
             <a href="https://anotepad.com/notes/wy55hp5p" target="_blank" class="btn btn-secondary btn-gow3">God of War 3</a>
@@ -408,6 +436,7 @@
     <script>
         const audio = document.getElementById('background-music');
         const sources = audio.getElementsByTagName('source');
+        const progress = document.getElementById('progress');
         let currentTrackIndex = 0;
 
         function playMusic() {
@@ -452,6 +481,19 @@
             }
         }
 
+        // Atualiza a barra de progresso
+        audio.addEventListener('timeupdate', () => {
+            const percent = (audio.currentTime / audio.duration) * 100;
+            progress.value = percent;
+        });
+
+        // Permite arrastar a barra de progresso
+        progress.addEventListener('input', () => {
+            const time = (progress.value / 100) * audio.duration;
+            audio.currentTime = time;
+        });
+
+        // Botão "Voltar ao topo"
         document.addEventListener('DOMContentLoaded', function() {
             const backToTopButton = document.getElementById('back-to-top');
 
