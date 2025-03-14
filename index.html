@@ -18,13 +18,11 @@
             color: #e0e0e0;
             scroll-behavior: smooth;
             padding-bottom: 20px;
-            opacity: 0; /* Começa invisível */
-            animation: fadeIn 1s forwards; /* Animação de fade-in */
+            opacity: 0;
+            animation: fadeIn 1s forwards;
         }
         @keyframes fadeIn {
-            to {
-                opacity: 1; /* Torna visível */
-            }
+            to { opacity: 1; }
         }
         header {
             position: relative;
@@ -70,8 +68,8 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
         .audio-player button {
-            background-color: #00CED1;
-            color: #fff;
+            background-color: #255be4;
+            color: #bebebe;
             border: none;
             padding: 12px 24px;
             font-size: 16px;
@@ -98,7 +96,7 @@
             gap: 10px;
         }
         .volume-label {
-            color: #fff;
+            color: #c4c4c4;
             font-size: 18px;
             display: flex;
             align-items: center;
@@ -106,7 +104,7 @@
         input[type="range"] {
             width: 100px;
             cursor: pointer;
-            background-color: #00CED1;
+            background-color: #ffcc00; /* Cor da barra de volume */
             border-radius: 5px;
             height: 5px;
             outline: none;
@@ -128,14 +126,14 @@
         }
         .audio-progress input[type="range"]::-webkit-slider-runnable-track {
             height: 5px;
-            background: #00CED1;
+            background: #185ef5; /* Cor da barra de progresso */
             border-radius: 5px;
         }
         .audio-progress input[type="range"]::-webkit-slider-thumb {
             -webkit-appearance: none;
             width: 15px;
             height: 15px;
-            background: #fff;
+            background: #fff; /* Cor do "botão" da barra */
             border-radius: 50%;
             margin-top: -5px;
             cursor: pointer;
@@ -148,11 +146,11 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         nav a {
-            display: inline-block; /* Manter na horizontal */
+            display: inline-block;
             color: #fff;
-            margin: 0 10px; /* Ajuste o espaçamento conforme necessário */
+            margin: 0 10px;
             text-decoration: none;
-            font-size: 16px; /* Ajuste o tamanho da fonte */
+            font-size: 16px;
             font-weight: bold;
             transition: color 0.3s ease;
         }
@@ -176,7 +174,7 @@
             font-size: 18px;
             color: #e0e0e0;
             line-height: 1.8;
-            margin-bottom: 30px;
+            margin-bottom: 10px;
         }
         .content h3 {
             font-size: 28px;
@@ -189,15 +187,20 @@
             margin-top: 20px;
             color: #ffcc00;
         }
+        .emoji {
+            font-size: 24px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+        }
         .social-links {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 5px; 
+            gap: 5px;
         }
         .btn {
             display: inline-block;
-            margin: 10px; /* Ajuste este valor para o espaçamento desejado */
+            margin: 10px;
             padding: 12px 24px;
             font-size: 16px;
             font-weight: bold;
@@ -206,20 +209,20 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .btn-gow3 {
-            margin-right: 5px; /* Reduzir a margem direita para aproximar os botões */
+            margin-right: 5px;
         }
         .btn-primary {
             background-color: #ff6f61;
             color: #fff;
         }
         .btn-primary:hover {
-            background-color: #ff4a3d;
+            background-color: #f5190d;
             transform: translateY(-3px);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
         .btn-secondary {
-            background-color: #0077cc;
-            color: #fff;
+            background-color: #00c3ff;
+            color: #f5f5f5;
         }
         .btn-secondary:hover {
             background-color: #005fa3;
@@ -317,8 +320,8 @@
                 font-size: 20px;
             }
             nav a {
-                font-size: 14px; /* Ajuste o tamanho da fonte para caber melhor */
-                margin: 0 5px; /* Ajuste o espaçamento conforme necessário */
+                font-size: 14px;
+                margin: 0 5px;
             }
             .content h2 {
                 font-size: 28px;
@@ -339,7 +342,7 @@
         </button>
         <div class="audio-player">
             <audio id="background-music" onended="nextMusic()" preload="auto">
-                <source src="https://encurtador.com.br/OamkM" type="audio/mpeg"> <!-- Nova música adicionada -->
+                <source src="https://encurtador.com.br/OamkM" type="audio/mpeg">
                 <source src="https://ia600609.us.archive.org/23/items/jo-jo-s-bizarre-adventure-all-openings-without-sfx-part-1-6-mp-3-160-k/JoJo_s%20Bizarre%20Adventure%20All%20openings%20without%20SFX%20%28part%201-6%29%28MP3_160K%29.mp3?cnt=0" type="audio/mpeg">
                 <source src="https://ia600600.us.archive.org/11/items/edijojo/edijojo.m4a?cnt=0" type="audio/mp4">
                 <source src="https://ia600809.us.archive.org/19/items/all-openings-inazuma-eleven-go-chrono-stone-galaxy-ares-orion-mp-3-160-k/All%20Openings%20Inazuma%20Eleven%20%5BGO_Chrono%20Stone_Galaxy_Ares_Orion%5D%28MP3_160K%29.mp3?cnt=0" type="audio/mpeg">
@@ -385,24 +388,30 @@
     <div class="content">
         <section id="home">
             <h2>Bem-vindo</h2>
-            <p>"Olá, grande amigo e inscrito do canal Tiolee! Crie este site para ajudar e facilitar algumas coisas. Sinta-se à vontade para baixar o que precisar ヾ(＠＾▽＾＠)ﾉ."</p>
+            <p>"Olá, grande amigo e inscrito do canal Tiolee! Crie este site para ajudar e facilitar algumas coisas. Sinta-se à vontade para baixar o que precisar."</p>
+            <p class="emoji">ヾ(＠＾▽＾＠)ﾉ</p>
             <a href="https://www.youtube.com/channel/UCEZFHrdXXJBnH1U4J5BQGnw?sub_confirmation=1" target="_blank" class="btn btn-primary">Inscreva-se</a>
         </section>
 
         <section id="sobre">
             <h2>Sobre</h2>
-            <p>"O que ainda não é inscrito, pare de ser vacilão e se inscreva aí. É só clicar nesse botão aí em cima (°ロ°)☝."</p>
+            <p>"O que ainda não é inscrito, pare de ser vacilão e se inscreva aí. É só clicar nesse botão aí em cima."</p>
+            <p class="emoji">(°ロ°)☝</p>
         </section>
+
         <section id="servicos">
             <h3>Aqui abaixo você irá encontrar alguns links</h3>
             <a href="https://anotepad.com/notes/wy55hp5p" target="_blank" class="btn btn-secondary btn-gow3">God of War 3</a>
+            <a href="https://anotepad.com/notes/697nfcjt" target="_blank" class="btn btn-secondary">Gow Ascension</a>
             <a href="https://youtu.be/emJ8FNSeudE?si=zdtuJuddjFG0ZlpK" target="_blank" class="btn btn-primary">Melhor Config GOW 3</a>
-            <a href="https://download1529.mediafire.com/j0lpv1obqlxg8zROgW_-WuhSPd_63bq5dbhRC7KvXJs80g8IZ9tF8rBaxXcXIGuV3SMuwVT6IM5ycPS9IetpodvssC3W-SwylMl3ELu70pGxCCZ5DmP0TMgXfd5uE1njD227Y7K9cR0LuMnVU6TiZqATeVV6j2-vh_yX5EYW6pCVZUE/wz4th866rru9hcj/patinho+amarelo+3.00.2.rar" target="_blank" class="btn btn-patinho">Patinho 3.2</a>
+            <a href="https://youtu.be/6fVMNT4SqtQ?si=84EQHF1o5A6mpsI_" target="_blank" class="btn btn-primary">Config Gow Ascension</a>
+            <a href="https://www.mediafire.com/file/dl8bold0yx33rdn/patinho_amarelo_3.00.2.rar/file" target="_blank" class="btn btn-patinho">Patinho 3.2</a>
         </section>
 
         <section id="contato">
             <h2>Contato</h2>
-            <p class="contact-message">Se quiser conversar comigo sobre alguma coisa, clique nos botões abaixo. Estou à disposição. १✌˚◡˚✌५</p>
+            <p class="contact-message">"Se quiser conversar comigo sobre alguma coisa, clique nos botões abaixo. Estou à disposição."</p>
+            <p class="emoji">१✌˚◡˚✌५</p>
             <div class="social-links">
                 <a href="https://t.me/tioleezin" target="_blank" class="btn btn-telegram">
                     <i class="fab fa-telegram"></i> Telegram
@@ -483,19 +492,16 @@
             }
         }
 
-        // Atualiza a barra de progresso
         audio.addEventListener('timeupdate', () => {
             const percent = (audio.currentTime / audio.duration) * 100;
             progress.value = percent;
         });
 
-        // Permite arrastar a barra de progresso
         progress.addEventListener('input', () => {
             const time = (progress.value / 100) * audio.duration;
             audio.currentTime = time;
         });
 
-        // Botão "Voltar ao topo"
         document.addEventListener('DOMContentLoaded', function() {
             const backToTopButton = document.getElementById('back-to-top');
 
